@@ -1,6 +1,8 @@
 {
     "name": "my-awesome-app-ajg",
-    "version": "0.2.0",
+
+    "version": "0.2.1",
+
     "description": "Hello World in Node with Express",
     "main": "app.js",
     "scripts": {
