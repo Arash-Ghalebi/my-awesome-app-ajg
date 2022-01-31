@@ -1,3 +1,4 @@
+// Simple web app for practicing advanced GitHub actions such as branches, tags, and releases.
 const express = require('express')
 const app = express()
 // Simple Hello World Node App
