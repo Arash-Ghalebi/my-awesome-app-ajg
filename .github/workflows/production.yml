@@ -1,0 +1,37 @@
+name: Docker Prod Image CI
+
+on:
+  release:
+    types: [published]
+
+  workflow_dispatch:
+
+env:
+  DATE_STAMP: $(date +%s)
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+          - uses: actions/checkout@v2
+          - name: Env variables
+            run: echo "date-stamp=${{env.DATE_STAMP}}" >> $GITHUB_ENV
+
+
+          - name: Checkout source code
+            uses: actions/checkout@v2
+          - name: Generate deployment package
+            run: zip -r deploy.zip . -x '*.git*'
+          - name: Deploy to AWS EBS
+            uses: einaregilsson/beanstalk-deploy@v20
+            with: 
+              aws_access_key: ${{ secrets.AWS_ACCESS_KEY }}
+              aws_secret_key: ${{ secrets.AWS_SECRET_KEY }}
+              application_name: my-awesome-app-ajg
+              environment_name: Myawesomeappajg-env
+              version_label: ${{ env.date-stamp }}
+              region: us-east-1
+              deployment_package: deploy.zip
+
+            

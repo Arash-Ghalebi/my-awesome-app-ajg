@@ -1,0 +1,8 @@
+version: '3.9'
+
+services:
+  prod-web:
+    container_name: my-awesome-app-ajg-aws
+    image: arashghalebi/my-awesome-app-ajg:latest
+    ports:
+      - '80:3000'

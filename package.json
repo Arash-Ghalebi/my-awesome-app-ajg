@@ -1,18 +1,18 @@
 {
     "name": "my-awesome-app-ajg",
-
-
     "version": "0.2.1",
-
-
     "description": "Hello World in Node with Express",
-    "main": "app.js",
+    "main": "App.js",
     "scripts": {
-        "start": "node app.js"
+        "start": "node App.js",
+        "test": "react-scripts test"
     },
     "author": "Arash Ghalebi",
     "license": "ISC",
     "dependencies": {
         "express": "^4.17.1"
+    },
+    "devDependencies": {
+        "react-scripts": "^4.0.3"
     }
 }
